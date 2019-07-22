@@ -11,7 +11,7 @@
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "overtrue/laravel-follow": "^1.1",
-        "pusher/pusher-php-server": "^3.4",
+        "pusher/pusher-php-server": "v3.0.1",
         "unisharp/laravel-ckeditor": "^4.7"
     },
     "require-dev": {

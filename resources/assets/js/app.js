@@ -44,10 +44,11 @@ const app = new Vue({
 
     mounted() {
         Echo.private('chat')
-            .listen('ChatEvent', (e) => {
+            .listen('myLaravelFirstApp\\Events\\ChatEvent', (e) => {
                 this.chat.message.push(e.message); 
                 this.chat.user.push(e.user);
                 this.chat.color.push("warning");
+                console.log('received');
                 console.log(e);
         });
     }

@@ -1200,10 +1200,11 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     mounted: function mounted() {
         var _this2 = this;
 
-        Echo.private('chat').listen('ChatEvent', function (e) {
+        Echo.private('chat').listen('myLaravelFirstApp\\Events\\ChatEvent', function (e) {
             _this2.chat.message.push(e.message);
             _this2.chat.user.push(e.user);
             _this2.chat.color.push("warning");
+            console.log('received');
             console.log(e);
         });
     }
@@ -1464,9 +1465,9 @@ window._ = __webpack_require__(15);
  */
 
 try {
-    window.$ = window.jQuery = __webpack_require__(17);
+  window.$ = window.jQuery = __webpack_require__(17);
 
-    __webpack_require__(18);
+  __webpack_require__(18);
 } catch (e) {}
 
 /**
@@ -1488,9 +1489,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 var token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
-    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 } else {
-    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
 
 /**
@@ -1502,17 +1503,13 @@ if (token) {
 
 
 window.Pusher = __webpack_require__(37);
+Pusher.logToConsole = true;
 
 window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo__["a" /* default */]({
-    broadcaster: 'pusher',
-    key: 'd2f34886870b9bb0c1cb',
-    cluster: 'eu',
-    encrypted: true,
-    auth: {
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    }
+  broadcaster: 'pusher',
+  key: 'd2f34886870b9bb0c1cb',
+  cluster: 'eu',
+  encrypted: true
 });
 
 /***/ }),

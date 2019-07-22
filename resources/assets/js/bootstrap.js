@@ -46,15 +46,11 @@ if (token) {
 import Echo from 'laravel-echo'
 
 window.Pusher = require('pusher-js');
+Pusher.logToConsole = true;
 
 window.Echo = new Echo({
     broadcaster: 'pusher',
     key: 'd2f34886870b9bb0c1cb',
     cluster: 'eu',
     encrypted: true,
-    auth: {
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    },
 });
